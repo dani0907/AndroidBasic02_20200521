@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import com.example.androidbasic02_20200521.databinding.ActivityUserInfoBinding;
 
+import java.util.Calendar;
+
 public class UserInfoActivity extends BaseActivity {
 
     ActivityUserInfoBinding binding;
@@ -27,7 +29,12 @@ public class UserInfoActivity extends BaseActivity {
     public void setValues() {
 
         String name = getIntent().getStringExtra("userName");
+        int birthYear = getIntent().getIntExtra("userBirthYear",-1);
 
-        binding.userInfoTxt.setText(name);
+        int age = Calendar.getInstance().get(Calendar.YEAR) - birthYear + 1;
+
+//      조경진 (33세) 양식으로 가공
+
+        binding.userInfoTxt.setText(String.format("%s (%d세)", name, age));
     }
 }
