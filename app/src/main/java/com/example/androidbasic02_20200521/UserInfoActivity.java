@@ -25,6 +25,9 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     public void setValues() {
-        binding.userNameTxt.setText("???");
+
+        String name = getIntent().getStringExtra("userName");
+
+        binding.userNameTxt.setText(name);
     }
 }
